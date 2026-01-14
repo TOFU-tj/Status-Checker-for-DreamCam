@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "Platform Status Checker",
+  "version": "1.0.0",
+  "description": "One-click HTTP status check (200/404/etc) for a fixed list of platforms.",
+  "action": {
+    "default_title": "Status Checker",
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "bg.js"
+  },
+  "host_permissions": ["<all_urls>"]
+}
