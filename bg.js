@@ -1,31 +1,34 @@
 async function checkUrl(url, timeoutMs = 8000) {
+  const started = performance.now();
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
 
-  const tryFetch = async (method) => {
+  const doFetch = async (method) => {
     const res = await fetch(url, {
       method,
       redirect: "follow",
       cache: "no-store",
       signal: controller.signal
     });
+    return res;
+  };
+
+  try {
+    let res;
+    try {
+      res = await doFetch("HEAD");
+    } catch {
+      res = await doFetch("GET");
+    }
 
     return {
       url,
       ok: res.ok,
       status: res.status,
       statusText: res.statusText,
-      finalUrl: res.url
+      finalUrl: res.url,
+      ms: Math.round(performance.now() - started)
     };
-  };
-
-  try {
-    // HEAD быстрее, но иногда режут → fallback GET
-    try {
-      return await tryFetch("HEAD");
-    } catch {
-      return await tryFetch("GET");
-    }
   } catch (e) {
     return {
       url,
@@ -33,6 +36,7 @@ async function checkUrl(url, timeoutMs = 8000) {
       status: null,
       statusText: null,
       finalUrl: null,
+      ms: Math.round(performance.now() - started),
       error: String(e)
     };
   } finally {
@@ -50,7 +54,6 @@ chrome.runtime.onMessage.addListener((msg, _sender, sendResponse) => {
     const urls = Array.isArray(msg.urls) ? msg.urls : [];
     const results = {};
 
-    // последовательно = стабильнее
     for (const u of urls) results[u] = await checkUrl(u);
 
     sendResponse({ ts: new Date().toISOString(), results });

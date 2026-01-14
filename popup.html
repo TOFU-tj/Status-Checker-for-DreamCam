@@ -1,24 +1,43 @@
 <!doctype html>
-<html>
+<html lang="ru">
 <head>
   <meta charset="utf-8" />
-  <style>
-    body { font-family: system-ui; width: 420px; padding: 12px; }
-    button { width: 100%; padding: 10px; border-radius: 10px; border: 1px solid #ddd; background: #fff; cursor: pointer; }
-    button:hover { background: #f6f6f6; }
-    .small { color:#666; font-size:12px; margin-top:8px; }
-    pre { white-space: pre-wrap; word-break: break-word; font-size: 12px; margin-top: 10px; }
-  </style>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Platform Status Checker</title>
+  <link rel="stylesheet" href="popup.css" />
 </head>
 <body>
-  <h3 style="margin:0 0 10px 0;">Platform Status Checker</h3>
+  <header class="top">
+    <div class="brand">
+      <div class="logo" aria-hidden="true">✓</div>
+      <div class="brandText">
+        <div class="title">Platform Status</div>
+        <div class="subtitle">One-click health check</div>
+      </div>
+    </div>
 
-  <button id="run">Check</button>
-  <div class="small">Checks fixed list: dreamcam, models, bss-cdn, bss, stripchat.</div>
+    <div class="actions">
+      <button id="btnCheck" class="btn primary">
+        <span class="dot" aria-hidden="true"></span>
+        Check
+      </button>
+      <button id="btnCopy" class="btn ghost" disabled>Copy</button>
+    </div>
+  </header>
 
-  <pre id="out">—</pre>
+  <section class="meta">
+    <div class="pill" id="ts">—</div>
+    <div class="pill" id="summary">Not checked yet</div>
+  </section>
+
+  <main class="list" id="list">
+    <!-- cards injected -->
+  </main>
+
+  <footer class="foot">
+    <div class="hint">Tip: works from any page. Status uses HEAD → fallback GET.</div>
+  </footer>
 
   <script src="popup.js"></script>
 </body>
 </html>
-
