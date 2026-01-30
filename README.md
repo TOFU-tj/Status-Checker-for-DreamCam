@@ -1,4 +1,4 @@
-# Status Checker for DreamCam + Stripchat (Chrome/Chromium Extension)
+# Status Checker for DreamCam + Stripchat (Chrome Extension)
 
 Расширение-“светофор” для быстрой проверки доступности ключевых доменов DreamCam и Stripchat.
 Показывает, есть ли соединение до сервисов
