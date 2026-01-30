@@ -9,3 +9,7 @@
 > Расширение **не обходит блокировки** и **не чинит WebRTC** — это диагностический инструмент.
 
 **Использовать исключительно в ознакомительных целях**
+
+
+Как скачать 
+git clone https://github.com/TOFU-tj/Status-Checker-for-DreamCam ~/Desktop/Status-Checker-for-DreamCam
