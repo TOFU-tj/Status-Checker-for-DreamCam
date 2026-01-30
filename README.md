@@ -1,4 +1,4 @@
-# Status Checker for DreamCam + Stripchat (Chrome Extension)
+Status Checker for DreamCam + Stripchat (Chrome Extension)
 
 Расширение- для быстрой проверки доступности ключевых доменов DreamCam и Stripchat.
 Показывает, есть ли соединение до сервисов
@@ -15,3 +15,4 @@
 git clone https://github.com/TOFU-tj/Status-Checker-for-DreamCam ~/Desktop/Status-Checker-for-DreamCam
 
 либо нажать на зеленый CODE и скачать zip
+<img width="690" height="399" alt="Screenshot 2026-01-30 at 08 49 01" src="https://github.com/user-attachments/assets/d2ffda3f-7737-4a0c-8eee-488b3518ec51" />
