@@ -13,3 +13,5 @@
 
 Как скачать 
 git clone https://github.com/TOFU-tj/Status-Checker-for-DreamCam ~/Desktop/Status-Checker-for-DreamCam
+
+либо нажать на зеленый CODE и скачать zip
